@@ -1,0 +1,9 @@
+<h3><u>Friendship Requests</u></h3>
+
+<% @pending_friendship.each do |accept_friend| %>
+ <% if accept_friend.aasm_state == "pending_friendship" %>
+   <%=  User.find(accept_friend.from_id).email %>   <%= link_to "Accept ", friendships_accept_friend_path(:from_id => accept_friend.from_id, :to_id=> accept_friend.to_id) %>
+ <% else %>
+    <h5>no friendship requests at this time</h5>  
+ <% end %>
+<% end %>

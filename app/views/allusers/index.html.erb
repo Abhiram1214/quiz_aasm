@@ -1,0 +1,8 @@
+<h3>Listing all Users</h3>
+
+<% @all_users.each do |user| %>
+   <% if user.aasm_state == "activated" %>
+      <%= user.email %>  <%= link_to "invite", friendships_path(:from_id=>current_user.id, :to_id=>user.id) %><br><br>        
+   <% end %>
+
+<% end %>

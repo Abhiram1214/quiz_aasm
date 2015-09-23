@@ -1,0 +1,31 @@
+
+<h4><u>Posts</u></h4><br><br>
+
+
+<div class="container">
+
+  <%= link_to "new post", new_post_path(:email=>current_user.email) %><br><br>
+
+<%= @from_posts.inspect %>
+
+
+
+       <div class="row" id="postbox">
+
+
+     <% if @friend_logic.aasm_state == "friend" %>
+        <div class="post">
+          <% @from_user = User.find_by(:id=>@friend_logic.from_id) %>
+          <% @to_user = User.find_by(:id=>@friend_logic.to_id) %>
+
+           user: <%= @from_user.email %><br><br>
+           post: <%= Post.find_by(:user_id=>@from_user).text %><br>
+        </div><br>
+
+     <#%= link_to "comment", new_comment_path(:post_id=>tweet.id) %>
+  </div><br><br>
+
+   <% end %>
+
+
+</div>

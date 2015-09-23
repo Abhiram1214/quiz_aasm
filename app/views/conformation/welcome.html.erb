@@ -1,0 +1,4 @@
+Please click on the link below to activate your account.
+
+
+<%= link_to  "localhost:3000/activations/"+@user.activation_code+"/edit" , edit_activation_path(:id=>@user.activation_code) %>

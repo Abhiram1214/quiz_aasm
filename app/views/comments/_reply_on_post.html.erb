@@ -1,0 +1,13 @@
+
+<%= form_for (@comment) do |f| %>
+
+  Comment for: <%= Post.find_by(@post_id).text %><br><br>
+    <%= f.label :reply %>
+    <%= f.text_area :reply %><br><br>
+
+<%= f.hidden_field :name, :value=>current_user.id %>
+<%= f.hidden_field :post_id, :value=>@post_id %>
+
+<%= f.submit %>
+
+<% end %>
