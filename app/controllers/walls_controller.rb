@@ -8,7 +8,7 @@ class WallsController < ApplicationController
   if @friend_logic!=nil
      @from_posts = Post.where(:user_id=>@friend_logic.from_id)
      @to_posts = Post.where(:user_id=>@friend_logic.to_id)
-     #@from_comments =
+     
   end
 
   end
