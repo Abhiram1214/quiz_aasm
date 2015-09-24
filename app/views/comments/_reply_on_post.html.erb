@@ -1,7 +1,7 @@
 
 <%= form_for (@comment) do |f| %>
 
-  Comment for: <%= Post.find_by(@post_id).text %><br><br>
+  Comment for: <%= Post.find(@post_id).text %><br><br>
     <%= f.label :reply %>
     <%= f.text_area :reply %><br><br>
 

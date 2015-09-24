@@ -1,8 +1,8 @@
-#postbox{
+.postbox{
   border: 1px solid lightgrey;
 
   border-radius: 10px;
-  width: 400px;  
+  width: 400px;
   margin-left: 5px;
 }
 
