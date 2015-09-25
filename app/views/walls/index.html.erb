@@ -7,7 +7,7 @@
   <%= link_to "new post", new_post_path(:email=>current_user.email) %><br><br>
 
 
-     <% if @friend_logic.aasm_state == "friend" %>
+
 
 
             <% @from_posts.each do |post| %>
@@ -19,18 +19,34 @@
             <% end %>
 
 
-
-            <% @to_posts.each do |post| %>
+            <% @from_posts_friends.each do |post| %>
                <div class="row postbox">
                   User: <%= post.user.email %><br><br>
                   Post: <%= post.text %><br><br>
                   <%= link_to "comment", new_comment_path(:post_id=>@from_posts) %><br>
-                </div><br><br>
+               </div><br><br>
             <% end %>
 
 
 
-   <% end %>
+
+               <% @to_posts.each do |post| %>
+                  <div class="row postbox">
+                     User: <%= post.user.email %><br><br>
+                     Post: <%= post.text %><br><br>
+                     <%= link_to "comment", new_comment_path(:post_id=>@to_posts) %><br>
+                  </div><br><br>
+               <% end %>
+
+
+               <% @to_posts_friends.each do |post| %>
+                  <div class="row postbox">
+                     User: <%= post.user.email %><br><br>
+                     Post: <%= post.text %><br><br>
+                     <%= link_to "comment", new_comment_path(:post_id=>@to_posts) %><br>
+                  </div><br><br>
+               <% end %>
+
 
 
 </div>
