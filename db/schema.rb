@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150921155620) do
+ActiveRecord::Schema.define(version: 20150927070609) do
+
+  create_table "albums", force: :cascade do |t|
+    t.integer  "images_id",  limit: 4
+    t.string   "pics",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer  "post_id",    limit: 4
@@ -27,6 +34,23 @@ ActiveRecord::Schema.define(version: 20150921155620) do
     t.string   "aasm_state", limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "galleries", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "album_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "post_id",             limit: 4
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "avatar_file_name",    limit: 255
+    t.string   "avatar_content_type", limit: 255
+    t.integer  "avatar_file_size",    limit: 4
+    t.datetime "avatar_updated_at"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -58,6 +82,10 @@ ActiveRecord::Schema.define(version: 20150921155620) do
     t.string   "activation_code",        limit: 255
     t.datetime "activated_at"
     t.string   "aasm_state",             limit: 255
+    t.string   "avatar_file_name",       limit: 255
+    t.string   "avatar_content_type",    limit: 255
+    t.integer  "avatar_file_size",       limit: 4
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
