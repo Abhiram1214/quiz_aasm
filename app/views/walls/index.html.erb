@@ -14,7 +14,7 @@
                <div class="row postbox">
                   User: <%= post.user.email %><br><br>
                   Post: <%= post.text %><br><br>
-                  <%= link_to "comment", new_comment_path(:post_id=>@from_posts) %><br>
+                  <%= link_to "comment", new_comment_path(:post_id=>post.id) %><br>
                </div><br><br>
             <% end %>
 
@@ -23,7 +23,7 @@
                <div class="row postbox">
                   User: <%= post.user.email %><br><br>
                   Post: <%= post.text %><br><br>
-                  <%= link_to "comment", new_comment_path(:post_id=>@from_posts) %><br>
+                  <%= link_to "comment", new_comment_path(:post_id=>post.id) %><br>
                </div><br><br>
             <% end %>
 
@@ -34,7 +34,7 @@
                   <div class="row postbox">
                      User: <%= post.user.email %><br><br>
                      Post: <%= post.text %><br><br>
-                     <%= link_to "comment", new_comment_path(:post_id=>@to_posts) %><br>
+                     <%= link_to "comment", new_comment_path(:post_id=>post.id) %><br>
                   </div><br><br>
                <% end %>
 
@@ -43,7 +43,7 @@
                   <div class="row postbox">
                      User: <%= post.user.email %><br><br>
                      Post: <%= post.text %><br><br>
-                     <%= link_to "comment", new_comment_path(:post_id=>@to_posts) %><br>
+                     <%= link_to "comment", new_comment_path(:post_id=>post.id) %><br>
                   </div><br><br>
                <% end %>
 
